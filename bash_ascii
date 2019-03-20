@@ -1,0 +1,117 @@
+letters=("4pWU4pWQ4pWXIArilaDilZDilaMgCuKVqSDilakg"
+"4pWU4pWXICAK4pWg4pWp4pWXIArilZrilZDilZ0g"
+"4pWU4pWQ4pWXCuKVkSAgCuKVmuKVkOKVnQ=="
+"4pWU4pWm4pWXIAog4pWR4pWRIArilZDilanilZ0g"
+"4pWU4pWQ4pWXIArilZHilaMgIArilZrilZDilZ0g"
+"4pWU4pWQ4pWXCuKVoOKVoyAK4pWaICA="
+"4pWU4pWQ4pWXCuKVkSDilaYK4pWa4pWQ4pWd"
+"4pWmIOKVpgrilaDilZDilaMK4pWpIOKVqQ=="
+"4pWmCuKVkQrilak="
+"IOKVpgog4pWRCuKVmuKVnQ=="
+"4pWm4pWU4pWQCuKVoOKVqeKVlwrilakg4pWp"
+"4pWmICAK4pWRICAK4pWp4pWQ4pWd"
+"4pWU4pWm4pWXCuKVkeKVkeKVkQrilakg4pWp"
+"4pWU4pWX4pWUCuKVkeKVkeKVkQrilZ3ilZrilZ0="
+"4pWU4pWQ4pWXCuKVkSDilZEK4pWa4pWQ4pWd"
+"4pWU4pWQ4pWXCuKVoOKVkOKVnQrilakgIA=="
+"4pWU4pWQ4pWXIArilZHilZDilazilZcK4pWa4pWQ4pWd4pWa"
+"4pWm4pWQ4pWXCuKVoOKVpuKVnQrilanilZrilZA="
+"4pWU4pWQ4pWXCuKVmuKVkOKVlwrilZrilZDilZ0=" "4pWU4pWm4pWXCiDilZEgCiDilakg"
+"4pWmIOKVpgrilZEg4pWRCuKVmuKVkOKVnQ=="
+"4pWmICDilaYK4pWa4pWX4pWU4pWdCiDilZrilZ0g"
+"4pWmIOKVpgrilZHilZHilZEK4pWa4pWp4pWd"
+"4pWQ4pWXIOKVpgrilZTilanilabilZ0K4pWpIOKVmuKVkA=="
+"4pWmIOKVpgrilZrilabilZ0KIOKVqSA=" "4pWU4pWQ4pWXCuKVlOKVkOKVnQrilZrilZDilZ0=")
+
+#function ascii which return the given string in vertical ascii
+function ascii() {
+    text="$1"
+    #text=$(tr -d ' ' <<< "$1")
+    while read -n1 char; do
+        pos=-1
+        if [ "$char" = "a" ] || [ "$char" = "A" ] ; then
+            pos=0
+        fi
+        if [ "$char" = "b" ] || [ "$char" = "B" ] ; then
+            pos=1
+        fi
+        if [ "$char" = "c" ] || [ "$char" = "C" ] ; then
+            pos=2
+        fi
+        if [ "$char" = "d" ] || [ "$char" = "D" ] ; then
+            pos=3
+        fi
+        if [ "$char" = "e" ] || [ "$char" = "E" ] ; then
+            pos=4
+        fi
+        if [ "$char" = "f" ] || [ "$char" = "F" ] ; then
+            pos=5
+        fi
+        if [ "$char" = "g" ] || [ "$char" = "G" ] ; then
+            pos=6
+        fi
+        if [ "$char" = "h" ] || [ "$char" = "H" ] ; then
+            pos=7
+        fi
+        if [ "$char" = "i" ] || [ "$char" = "I" ] ; then
+            pos=8
+        fi
+        if [ "$char" = "j" ] || [ "$char" = "J" ] ; then
+            pos=9
+        fi
+        if [ "$char" = "k" ] || [ "$char" = "K" ] ; then
+            pos=10
+        fi
+        if [ "$char" = "l" ] || [ "$char" = "L" ] ; then
+            pos=11
+        fi
+        if [ "$char" = "m" ] || [ "$char" = "M" ] ; then
+            pos=12
+        fi
+        if [ "$char" = "n" ] || [ "$char" = "N" ] ; then
+            pos=13
+        fi
+        if [ "$char" = "o" ] || [ "$char" = "O" ] ; then
+            pos=14
+        fi
+        if [ "$char" = "p" ] || [ "$char" = "P" ] ; then
+            pos=15
+        fi
+        if [ "$char" = "q" ] || [ "$char" = "Q" ] ; then
+            pos=16
+        fi
+        if [ "$char" = "r" ] || [ "$char" = "R" ] ; then
+            pos=17
+        fi
+        if [ "$char" = "s" ] || [ "$char" = "S" ] ; then
+            pos=18
+        fi
+        if [ "$char" = "t" ] || [ "$char" = "T" ] ; then
+            pos=19
+        fi
+        if [ "$char" = "u" ] || [ "$char" = "U" ] ; then
+            pos=20
+        fi
+        if [ "$char" = "v" ] || [ "$char" = "V" ] ; then
+            pos=21
+        fi
+        if [ "$char" = "w" ] || [ "$char" = "W" ] ; then
+            pos=22
+        fi
+        if [ "$char" = "x" ] || [ "$char" = "X" ] ; then
+            pos=23
+        fi
+        if [ "$char" = "y" ] || [ "$char" = "Y" ] ; then
+            pos=24
+        fi
+        if [ "$char" = "z" ] || [ "$char" = "Z" ] ; then
+            pos=25
+        fi
+        if [ $pos -ne -1 ] ; then
+            base64 -d <<< "${letters[$pos]}Cg=="
+        else
+            echo ""
+        fi
+    done < <(echo -n $text)
+}
+export -f ascii
