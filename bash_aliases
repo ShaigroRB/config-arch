@@ -12,14 +12,13 @@ make distclean'
 
 #rm aliases
 alias rmi='rm -ri'
-alias rma='rm a.out'
 
 #cd aliases
 alias ...='cd ../..'
 alias ..='cd ..'
-alias cdp='cd ~/Projets/YAKA/tigrou/Tiger-Compiler'
-alias cds='cd /home/bouche_7/Projets/YAKA/SQL'
-alias cdd='cd ~/Projets/YAKA/Django/'
+alias cdi='cd ~/Ing1/INIA'
+alias cdp='cd ~/Ing1/chess'
+alias cdd='cd ~/Ing1/yaka_star_events'
 
 #ls aliases
 alias sl='ls'
@@ -48,7 +47,7 @@ alias gpp='g++ -Wall -Werror -Wextra -g -pedantic -std=c++17'
 alias clgfi='clang-format -i'
 alias clgf='clang-format'
 
-#other aliases
+#useless aliases
 alias gg='
 echo "                                                    ";
 echo "                                                    ";
@@ -100,3 +99,11 @@ export -f tcc
 
 #django aliases
 alias serv='python manage.py runserver'
+alias testd='./manage.py test'
+
+#pacman aliases
+alias packages='pacman -Q'
+alias updatesys='sudo pacman -Syu'
+
+#space usage alias
+alias spaceused='du -ch'
