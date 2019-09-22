@@ -1,24 +1,13 @@
-#useful aliases
-#nuke for tiger
-alias mini_nuke='rm src/location.hh src/parse.cc src/parse.hh
-src/parse/location.hh src/parse/parsetiger.cc src/parse/parsetiger.hh
-src/parse/parsetiger.html src/parse/parsetiger.output src/parse/parsetiger.stamp
-src/parse/parsetiger.xml src/parse/position.hh src/parse/position.hh.bak
-src/parse/stack.hh src/parse/stack.hh.bak src/position.hh src/scan.cc src/stack.hh'
-alias nuke='mini_nuke
-make mostlyclean
-make clean
-make distclean'
-
 #rm aliases
 alias rmi='rm -ri'
+alias rm='rm -i'
 
 #cd aliases
 alias ...='cd ../..'
 alias ..='cd ..'
 alias cdi='cd ~/Ing1/INIA'
 alias cdp='cd ~/Ing1/chess'
-alias cdd='cd ~/Ing1/yaka_star_events'
+alias cdd='cd ~/Ing1/romain.wang-yakachoisir'
 
 #ls aliases
 alias sl='ls'
@@ -73,6 +62,7 @@ alias rainbow='str=""; for i in $(seq 4200); do str+="\e[41m \e[45m \e[43m \e[42
 alias wtf='for j in $(seq 500); do for i in {0..255} {255..0} ; do echo -en "\e[48;5;${i}m \e[0m" ; done ; echo; done'
 alias loop_wtf='while true; do wtf ; done'
 alias loop_clr='while true; do echo -e $degrade_clr ; done'
+alias displayconfig='neofetch'
 
 #fun functions
 function mak() {
@@ -107,3 +97,18 @@ alias updatesys='sudo pacman -Syu'
 
 #space usage alias
 alias spaceused='du -ch'
+
+#compute space used by a repo git excluding .git/ folder
+gitrealspace() {
+    echo "$(echo "$(spaceused -s | head -1 | tr -dc "[:digit:]") - \
+    $(spaceused -s .git | head -1 | tr -dc "[:digit:]")" | bc)MB";
+}
+
+#exit alias
+alias exot='exit'
+
+#docker aliases
+alias dockerrun='sudo docker run --rm -v `pwd`:/scan -it'
+
+#temporary aliases
+alias lc="${HOME}/go/lc"
