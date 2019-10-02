@@ -1,6 +1,6 @@
 #!/bin/bash
 files="bash_aliases bash_ascii bashrc_perso gitconfig inputrc vimrc Xresources
-i3/"
+i3/config"
 
 for file in $files; do
     cp ${file} ~/.${file} ;
