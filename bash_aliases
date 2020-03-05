@@ -64,29 +64,6 @@ alias loop_wtf='while true; do wtf ; done'
 alias loop_clr='while true; do echo -e $degrade_clr ; done'
 alias displayconfig='neofetch'
 
-#fun functions
-function mak() {
-    command make
-    tmp=$(echo $?)
-    if [ $tmp -eq 0 ]; then
-        gg
-    else
-        echo "Boo! You don't know how to code!"
-    fi
-}
-
-#useful functions
-#touch and mod at the same time
-touchmod() { > $2 && chmod $1 $2; }
-export -f touchmod
-
-#touch a .cc file and its corresponding .hh
-tcc() {
-    echo "#include \"${1}.hh\""> "${1}.cc";
-    echo "#pragma once" > "${1}.hh";
-}
-export -f tcc
-
 #django aliases
 alias serv='python manage.py runserver'
 alias testd='./manage.py test'
@@ -98,17 +75,15 @@ alias updatesys='sudo pacman -Syu'
 #space usage alias
 alias spaceused='du -ch'
 
-#compute space used by a repo git excluding .git/ folder
-gitrealspace() {
-    echo "$(echo "$(spaceused -s | head -1 | tr -dc "[:digit:]") - \
-    $(spaceused -s .git | head -1 | tr -dc "[:digit:]")" | bc)MB";
-}
-
 #exit alias
 alias exot='exit'
 
 #docker aliases
 alias dockerrun='sudo docker run --rm -v `pwd`:/scan -it'
 
+# get all packages that don't depend on others
+alias unnecessary_packages="pacman -Qdtq"
+
 #temporary aliases
 alias lc="${HOME}/go/lc"
+alias askalono='/home/robinb/Downloads/askalono.linux'
