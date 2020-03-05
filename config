@@ -1,7 +1,7 @@
 Host git.cri.epita.net
     User git
-    IdentityFile ~/.ssh/my_git_key_file
+    IdentityFile ~/.ssh/id_rsa_cri
 
 Host github.com
     User ShaigroRB
-    IdentityFile ~/.ssh/id_rsa_git_perso
+    IdentityFile ~/.ssh/id_rsa_perso
