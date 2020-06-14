@@ -55,7 +55,16 @@ for i in {88..93} {93..88} ; do
 done
 
 #custom prompt
-PS1="${clr1}[\u ${bold}${clr3}\w ${clr2}- \t] ${def}<${blink}${bold}${clr5}\$?${def}>\n${clr4}$>\[${def}\]"
+current_git_branch() {
+    result="";
+    branch="$(git branch 2>/dev/null | grep '^*' | colrm 1 2)";
+    if [ "$branch" != "" ]; then
+        result="(${branch})";
+    fi
+    echo "$result" ;
+}
+PS1="${clr1}[\u ${bold}${clr3}\w ${clr2}- \t] ${def}<${blink}${bold}${clr5}\$?${def}> \$(current_git_branch)\n${clr4}$>\[${def}\] "
+
 export PGDATA="$HOME/afs/tmp/postgres_data"
 export PGHOST="/tmp"
 
