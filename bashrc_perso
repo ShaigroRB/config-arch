@@ -63,7 +63,15 @@ current_git_branch() {
     fi
     echo "$result" ;
 }
-PS1="${clr1}[\u ${bold}${clr3}\w ${clr2}- \t] ${def}<${blink}${bold}${clr5}\$?${def}> \$(current_git_branch)\n${clr4}$>\[${def}\] "
+last_result() {
+    if [ $? -eq 0 ]; then
+        echo -e "${green}$?" ;
+    else
+        echo -e "${red}$?" ;
+    fi
+}
+
+PS1="${clr1}[\u ${bold}${clr3}\w ${clr2}- \t] ${def}<${blink}${bold}\$(last_result)${def}> \$(current_git_branch)\n${clr4}$>\[${def}\] "
 
 export PGDATA="$HOME/afs/tmp/postgres_data"
 export PGHOST="/tmp"
