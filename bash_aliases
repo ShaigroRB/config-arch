@@ -87,3 +87,6 @@ alias unnecessary_packages="pacman -Qdtq"
 #temporary aliases
 alias lc="${HOME}/go/lc"
 alias askalono='/home/robinb/Downloads/askalono.linux'
+
+# used ports
+alias ports="ss -lntu"
