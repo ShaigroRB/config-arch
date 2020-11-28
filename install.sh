@@ -1,17 +1,31 @@
 #!/bin/bash
 
+read -p "Copy i3 config? [y/n]" is_i3 ;
+read -p "Copy kitty config? [y/n]" is_kitty ;
+
+
 files="bash_aliases bash_ascii bash_functions bashrc_perso gitconfig inputrc
-vimrc Xresources i3/config"
+vimrc Xresources"
 
 for file in $files; do
-    cp ${file} ~/.${file} ;
+    cp -i ${file} ~/.${file} ;
 done
 
 # custom git commands
-cp -r gitcmds/ ~/.gitcmds ;
+cp -ir gitcmds/ ~/.gitcmds ;
 
+
+## Config that may need some installation
 # kitty config
-cp -r kitty/ ~/.config/ ;
+if [ "yes" == is_kitty ]; then
+    cp -ir kitty/ ~/.config/ ;
+fi
+
+# i3 config
+if [ "yes" == is_i3 ] && [ -f ~/.i3/ ]; then
+    cp -i "i3/config" ~/.i3/ ;
+fi
+
 
 echo "if [ -f ~/.bashrc_perso ]; then
     . ~/.bashrc_perso;
