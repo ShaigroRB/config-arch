@@ -1,7 +1,7 @@
-Host git.cri.epita.net
-    User git
-    IdentityFile ~/.ssh/id_rsa_cri
-
 Host github.com
-    User ShaigroRB
-    IdentityFile ~/.ssh/id_rsa_perso
+    User username
+    IdentityFile path/to/private_key
+
+Host gitlab.com
+    User gitlab_username
+    IdentityFile ~/.ssh/path/to/private_key
