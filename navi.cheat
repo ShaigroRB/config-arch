@@ -1,0 +1,13 @@
+% git
+
+# git rebase interactive
+git rebase -i <commit_sha>
+
+# git fixup
+git rebase -i <commit_sha> --autosquash
+
+# git commit --amend
+git commit --amend
+
+# git rebase main
+git rebase main
